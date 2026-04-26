@@ -1,0 +1,221 @@
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #05050a;
+}
+::-webkit-scrollbar-thumb {
+    background: #1a1a2e;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00f2fe;
+}
+
+/* --- Custom Fonts --- */
+@font-face {
+    font-family: 'Ahsing';
+    src: url('fonts/Ahsing-Regular.otf') format('opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gliker';
+    src: local('Gliker'), url('fonts/Gliker-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Buffalo';
+    src: local('Buffalo'), url('fonts/BuffaloDemoVersionRegular-axZ1R.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- Tema Utama: Liquid Glass Cyber Oceanic --- */
+
+/* 1. Navbar Liquid Glass */
+.liquid-glass-nav {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 242, 254, 0.2); 
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8), 
+                inset 0 2px 20px rgba(0, 242, 254, 0.08); 
+    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-scrolled-wrapper {
+    top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.nav-scrolled-wrapper .liquid-glass-nav {
+    max-width: 100% !important;
+    border-radius: 0 0 24px 24px !important;
+    background: rgba(5, 5, 10, 0.7);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.9), 
+                inset 0 -2px 20px rgba(0, 242, 254, 0.05);
+}
+
+/* 2. Panel & Kartu Liquid Glass */
+.liquid-glass-panel,
+.liquid-glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4),
+                inset 0 0 20px rgba(0, 242, 254, 0.02);
+    transition: all 0.4s ease;
+}
+
+.liquid-glass-card:hover {
+    border-color: rgba(0, 242, 254, 0.4);
+    background: rgba(0, 242, 254, 0.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(0, 242, 254, 0.15),
+                inset 0 0 20px rgba(0, 242, 254, 0.1);
+    transform: translateY(-5px);
+}
+
+/* 3. Tombol Liquid Glass */
+.liquid-glass-button {
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.liquid-glass-button:hover {
+    background: rgba(0, 242, 254, 1);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.5),
+                inset 0 0 15px rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.liquid-glass-button-outline {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    transition: all 0.4s ease;
+}
+
+.liquid-glass-button-outline:hover {
+    border-color: rgba(0, 242, 254, 1);
+    background: rgba(0, 242, 254, 0.1);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Overlay Portfolio */
+.liquid-glass-overlay {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 242, 254, 0.15);
+}
+
+/* --- Efek Pijar Teks --- */
+.glow-text {
+    text-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+}
+
+.glow-text-hover:hover {
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.8),
+                0 0 40px rgba(79, 172, 254, 0.4);
+}
+
+/* =========================================
+    ANIMASI MARQUEE
+   ========================================= */
+
+@keyframes marquee {
+    0% { transform: translateX(0) translate3d(0,0,0); }
+    100% { transform: translateX(-50%) translate3d(0,0,0); }
+}
+
+@keyframes marquee-reverse {
+    0% { transform: translateX(-50%) translate3d(0,0,0); }
+    100% { transform: translateX(0) translate3d(0,0,0); }
+}
+
+.animate-marquee {
+    animation: marquee 35s linear infinite; 
+    will-change: transform;
+}
+
+.animate-marquee-reverse {
+    animation: marquee-reverse 35s linear infinite; 
+    will-change: transform;
+}
+
+.skill-track-container:hover .animate-marquee,
+.skill-track-container:hover .animate-marquee-reverse {
+    animation-play-state: paused;
+}
+
+/* --- Custom Responsive Utilities --- */
+.skill-card {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .skill-card {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* =========================================
+   ANIMASI SPLASH SCREEN APPLE STYLE
+   ========================================= */
+
+@keyframes appleGreetingAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+.animate-greeting-apple {
+    animation: appleGreetingAnim 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* --- Modal Scrollbar --- */
+.modal-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.modal-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb {
+    background: #1f1f2e;
+    border-radius: 10px;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 242, 254, 0.5);
+}
