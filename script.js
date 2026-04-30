@@ -79,24 +79,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ====================================================
+// ====================================================
     // 3. LOGIKA MOBILE MENU HAMBURGER (OPEN/CLOSE)
     // ====================================================
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const closeMenuBtn = document.getElementById('close-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuCard = document.getElementById('mobile-menu-card'); // Variabel baru untuk inner card
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function toggleMobileMenu() {
         const isMenuOpen = mobileMenu.classList.contains('opacity-100');
         
         if (isMenuOpen) {
+            // Animasi Menutup
             mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
             mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            
+            // Efek mengecilkan card
+            if (mobileMenuCard) {
+                mobileMenuCard.classList.remove('scale-100');
+                mobileMenuCard.classList.add('scale-95');
+            }
+            
             document.body.style.overflow = 'auto'; 
         } else {
+            // Animasi Membuka
             mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
             mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            
+            // Efek pop-up membesarkan card
+            if (mobileMenuCard) {
+                mobileMenuCard.classList.remove('scale-95');
+                mobileMenuCard.classList.add('scale-100');
+            }
+            
             document.body.style.overflow = 'hidden'; 
         }
     }
@@ -107,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLinks.forEach(link => {
         link.addEventListener('click', toggleMobileMenu);
     });
-});
 
 // ===========================
 // 4. LOGIKA NAVBAR SCROLL
@@ -294,3 +310,4 @@ if(projectModal) {
         }
     });
 }
+});

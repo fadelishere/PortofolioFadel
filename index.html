@@ -76,15 +76,58 @@
         </nav>
     </div>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500 ease-in-out">
-        <button id="close-menu-btn" class="absolute top-8 right-8 text-gray-300 hover:text-white transition focus:outline-none">
-            <i class="fa-solid fa-xmark text-4xl"></i>
-        </button>
-        <a href="#home" class="mobile-link text-3xl font-medium text-white hover:text-primary transition tracking-wide">Home</a>
-        <a href="#about" class="mobile-link text-3xl font-medium text-white hover:text-primary transition tracking-wide">About</a>
-        <a href="#skills" class="mobile-link text-3xl font-medium text-white hover:text-primary transition tracking-wide">Skills</a>
-        <a href="#portfolio" class="mobile-link text-3xl font-medium text-white hover:text-primary transition tracking-wide">Projects</a>
-        <a href="#contact" class="mobile-link text-3xl font-medium text-white hover:text-primary transition tracking-wide">Contact</a>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-darkBg/80 backdrop-blur-md z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 ease-in-out p-6">
+        <div id="mobile-menu-card" class="liquid-glass-card w-full max-w-sm rounded-[2rem] p-6 md:p-8 flex flex-col transform scale-95 transition-transform duration-500 ease-out shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div class="flex justify-between items-center w-full mb-8">
+                <span class="font-ahsing text-3xl text-white tracking-wider glow-text -translate-y-1">Fadel<span class="text-primary">.</span></span>
+                <button id="close-menu-btn" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/20 hover:border-primary/50 transition-all cursor-pointer">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col space-y-2 w-full">
+                <!-- Home -->
+                <a href="#home" class="mobile-link group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all">
+                    <div class="w-12 h-12 flex-shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                        <i class="fa-solid fa-house text-lg"></i>
+                    </div>
+                    <span class="text-[1.1rem] font-medium text-gray-300 group-hover:text-white transition-colors tracking-wide">Home</span>
+                </a>
+                
+                <!-- About -->
+                <a href="#about" class="mobile-link group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all">
+                    <div class="w-12 h-12 flex-shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                        <i class="fa-regular fa-user text-lg"></i>
+                    </div>
+                    <span class="text-[1.1rem] font-medium text-gray-300 group-hover:text-white transition-colors tracking-wide">About</span>
+                </a>
+
+                <!-- Skills -->
+                <a href="#skills" class="mobile-link group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all">
+                    <div class="w-12 h-12 flex-shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                        <i class="fa-solid fa-bolt text-lg"></i>
+                    </div>
+                    <span class="text-[1.1rem] font-medium text-gray-300 group-hover:text-white transition-colors tracking-wide">Skills</span>
+                </a>
+
+                <!-- Projects -->
+                <a href="#portfolio" class="mobile-link group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all">
+                    <div class="w-12 h-12 flex-shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                        <i class="fa-solid fa-briefcase text-lg"></i>
+                    </div>
+                    <span class="text-[1.1rem] font-medium text-gray-300 group-hover:text-white transition-colors tracking-wide">Projects</span>
+                </a>
+
+                <!-- Contact -->
+                <a href="#contact" class="mobile-link group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all">
+                    <div class="w-12 h-12 flex-shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                        <i class="fa-regular fa-paper-plane text-lg"></i>
+                    </div>
+                    <span class="text-[1.1rem] font-medium text-gray-300 group-hover:text-white transition-colors tracking-wide">Contact</span>
+                </a>
+            </div>
+        </div>
     </div>
 
     <section id="home" class="min-h-screen flex items-center justify-center relative pt-24 overflow-hidden">
@@ -530,7 +573,7 @@
     </section>
 
     <footer class="bg-darkBg py-8 text-center border-t border-primary/20 relative z-10">
-        <p class="text-gray-500 text-sm tracking-wide">&copy; 2026 Fadel Naya Raflinanto. Crafted with <i class="fa-solid fa-heart text-primary mx-1"></i></p>
+        <p class="text-gray-500 text-xs md:text-sm tracking-wide">&copy; 2026 Fadel Naya Raflinanto. Crafted with <i class="fa-solid fa-heart text-primary mx-1"></i></p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
