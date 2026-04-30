@@ -34,11 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const greetings = ["hello", "hola", "namaste", "bonjour", "ciao", "مرحبا", "こんにちは", "안녕하세요"];
             let currentIndex = 0;
+            let isSkipped = false;
             
             const animDuration = 1500; 
             const delayBetweenWords = 200; 
 
+            // Logika Tombol Skip
+            const skipBtn = document.getElementById('skip-splash-btn');
+            if (skipBtn) {
+                skipBtn.addEventListener('click', () => {
+                    isSkipped = true; // Menghentikan animasi teks berikutnya
+                    loading.classList.add('opacity-0', 'pointer-events-none');
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                    }, 1000);
+                });
+            }
+
             function showNextGreeting() {
+                if (isSkipped) return; 
+
                 if (currentIndex < greetings.length) {
                     greetingText.textContent = greetings[currentIndex];
                     
@@ -159,7 +174,7 @@ const projectsData = [
         techStack: ["Canva"],
         description: "This collection of works consists of visual assets that I designed to support various marketing campaigns and events. In every design process, I always strive to balance aesthetic value with clarity of information so that the message can be delivered effectively. I achieve this through clean layouts, attractive color combinations, and bold, easy-to-read typography. The works I create are also quite diverse to meet various promotional needs. In addition to designing posters, I also create banners and X-banners for print media, as well as arrange Instagram feed layouts, live report frames, and video bumpers as digital assets.",
         image: "image/project-3.png",
-        liveLink: "https://canva.link/s7fzdufq3fax93y"
+        liveLink: "https://canva.link/designfadelnaya"
     }
 ];
 
