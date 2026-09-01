@@ -154,160 +154,80 @@ window.addEventListener('scroll', () => {
 const projectModal = document.getElementById('project-modal');
 const modalContent = document.getElementById('modal-content');
 
-// Database Proyek Bahasa Inggris
+// ===========================
+// 6. ANIMASI TYPING TEXT (LOOP FIXED HEIGHT)
+// ===========================
+const textToType = "Work with heart, stay grateful, and keep smiling.";
+const typingElement = document.getElementById("typing-text");
+
+if (typingElement) {
+    let index = 0;
+    let isDeleting = false;
+    const typeSpeed = 75;    // Kecepatan mengetik (ms)
+    const deleteSpeed = 35;  // Kecepatan menghapus (ms)
+    const pauseEnd = 2000;   // Jeda saat selesai mengetik (2 detik)
+    const pauseStart = 500;  // Jeda sebelum mulai mengetik lagi (0.5 detik)
+
+    function typeLoop() {
+        const currentText = textToType.substring(0, index);
+        
+        // Menggunakan &nbsp; saat kosong agar tinggi baris tidak hilang/collapse
+        typingElement.innerHTML = currentText || '&nbsp;';
+
+        let nextSpeed = isDeleting ? deleteSpeed : typeSpeed;
+
+        if (!isDeleting && index === textToType.length) {
+            nextSpeed = pauseEnd;
+            isDeleting = true;
+        } else if (isDeleting && index === 0) {
+            nextSpeed = pauseStart;
+            isDeleting = false;
+        }
+
+        index += isDeleting ? -1 : 1;
+        setTimeout(typeLoop, nextSpeed);
+    }
+
+    setTimeout(typeLoop, 800);
+}
+
+// Database Proyek
 const projectsData = [
     {
         title: "Baby Glow",
         category: "Web Design",
-        role: "Web Design",
+        role: "UI/UX Designer",
         techStack: ["Figma"],
-        description: "Baby Glow is a mobile application concept designed to help parents manage their babies health and comfort. The app bridges children’s medical and wellness needs by providing easy access to pediatric specialists and professional baby spa therapists, with flexible service options such as homecare visits or appointments at clinics/hospitals.\n\nBaby Glow comes with a user-friendly, calming, and practical interface. It is designed so that parents who are in a hurry or feeling anxious can easily find a doctor, schedule visits, or book baby spa services with just a few taps.",
+        description: "Baby Glow is a mobile application concept designed to help parents manage their babies health and comfort...",
         image: "image/project-1.png",
         liveLink: "https://www.figma.com/proto/UCXKrpNLbioe75bl39EjCm/Baby-Glow?node-id=1-2&p=f&t=1JUWXYb5dOywO55D-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2"
     },
     {
         title: "Next Drive",
         category: "Web Design",
-        role: "Web Design",
+        role: "UI/UX Designer",
         techStack: ["Figma"],
-        description: "Next Drive is a UI/UX design concept for a modern automotive marketplace website. This platform is designed to bridge the needs of users who want to buy cars (both new and used) safely, while also making it easier for individuals or dealers who want to sell their vehicles quickly at competitive prices.\n\nThe design of Next Drive focuses on building trust and enhancing discoverability. The website offers a clean interface, intuitive navigation, and the presentation of technical data in a way that is easy to understand for both casual users and automotive enthusiasts.",
+        description: "Next Drive is a UI/UX design concept for a modern automotive marketplace website...",
         image: "image/project-2.png",
         liveLink: "https://www.figma.com/proto/Il12xaw8ibwahVs7hpx0oq/UTS---03069?node-id=1-4&p=f&t=9F40DLs0kVmaeC0y-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=1%3A4"
     },
     {
         title: "OmahUti",
         category: "Web Development, Demo",
-        role: "Web Development",
+        role: "Full Stack Developer",
         techStack: ["JavaScript", "PHP", "Tailwind", "SQL"],
-        description: "OmahUti is a website that I developed specifically to help promote local F&B products such as cheese sticks, nastar, and various kinds of cookies. Since the main target audience is young people (Gen Z and millennials), the website was built using modern technology to create an interactive and engaging experience.\n\nIt does not only focus on the front-end design to attract customers, but the back-end has also been equipped with a management dashboard system to handle product data and operations in a more organized and structured way.",
+        description: "OmahUti is a website that I developed specifically to help promote local F&B products...",
         image: "image/project-4.png",
-        liveLink: "maintenance.html"
     },
     {
         title: "Graphic Design", 
         category: "Graphic Design",
-        role: "Graphic Design",
-        techStack: ["Canva"],
-        description: "This collection of works consists of visual assets that I designed to support various marketing campaigns and events. In every design process, I always strive to balance aesthetic value with clarity of information so that the message can be delivered effectively. I achieve this through clean layouts, attractive color combinations, and bold, easy-to-read typography. The works I create are also quite diverse to meet various promotional needs. In addition to designing posters, I also create banners and X-banners for print media, as well as arrange Instagram feed layouts, live report frames, and video bumpers as digital assets.",
+        role: "Graphic Designer",
+        techStack: ["Canva", "Figma"],
+        description: "This collection of works consists of visual assets that I designed to support various marketing campaigns...",
         image: "image/project-3.png",
         liveLink: "https://canva.link/designfadelnaya"
     }
 ];
-
-let currentProjectIndex = 0;
-let isDescExpanded = false;
-
-// Render data ke dalam HTML Modal
-function renderModalData(index) {
-    const project = projectsData[index];
-    
-    // Set text element
-    document.getElementById('modal-title').textContent = project.title;
-    
-    // Render Multiple Labels untuk Category
-    const tagsContainer = document.getElementById('modal-tags');
-    tagsContainer.innerHTML = ''; 
-    
-    const categories = project.category.split(', ');
-    categories.forEach(cat => {
-        let styleClasses = "bg-primary/10 text-primary border-primary/30"; // Default warna primary (biru cyan)
-        
-        // Kondisi jika labelnya adalah "Demo", berikan warna kuning yang tidak terlalu terang
-        if (cat.trim() === "Demo") {
-            styleClasses = "bg-yellow-500/10 text-yellow-500 border-yellow-500/30"; 
-        }
-        
-        tagsContainer.innerHTML += `<span class="px-4 py-1.5 ${styleClasses} text-xs font-bold rounded-full border">${cat.trim()}</span>`;
-    });
-
-    document.getElementById('modal-role').textContent = project.role;
-    document.getElementById('modal-desc').textContent = project.description;
-    
-    // Set Image & Links
-    document.getElementById('modal-main-img').src = project.image;
-    document.getElementById('modal-link-live').href = project.liveLink;
-
-    // Reset teks deskripsi ke mode terpotong (Show More) khusus untuk mobile
-    const descEl = document.getElementById('modal-desc');
-    isDescExpanded = false;
-    descEl.classList.add('line-clamp-3');
-    document.getElementById('toggle-desc-icon').classList.replace('fa-chevron-up', 'fa-chevron-down');
-    document.getElementById('toggle-desc-text').textContent = 'Show More';
-
-    // Set Tech Stack
-    const techStackContainer = document.getElementById('modal-tech-stack');
-    techStackContainer.innerHTML = ''; 
-    project.techStack.forEach(tech => {
-        techStackContainer.innerHTML += `<span class="px-3 py-1.5 bg-[#1a1a2e] border border-gray-700 rounded-full text-gray-300 text-xs">${tech}</span>`;
-    });
 }
-
-// Buka Modal
-function openProjectModal(index) {
-    currentProjectIndex = index;
-    renderModalData(currentProjectIndex);
-
-    projectModal.classList.remove('hidden');
-    projectModal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-
-    setTimeout(() => {
-        projectModal.classList.remove('opacity-0');
-        modalContent.classList.remove('scale-95');
-        modalContent.classList.add('scale-100');
-    }, 10);
-}
-
-// Tutup Modal
-function closeProjectModal() {
-    projectModal.classList.add('opacity-0');
-    modalContent.classList.remove('scale-100');
-    modalContent.classList.add('scale-95');
-
-    setTimeout(() => {
-        projectModal.classList.add('hidden');
-        projectModal.classList.remove('flex');
-        document.body.style.overflow = 'auto';
-    }, 300); 
-}
-
-// Fungsi tombol Prev (Kiri)
-function prevProject() {
-    currentProjectIndex = (currentProjectIndex - 1 + projectsData.length) % projectsData.length;
-    renderModalData(currentProjectIndex);
-}
-
-// Fungsi tombol Next (Kanan)
-function nextProject() {
-    currentProjectIndex = (currentProjectIndex + 1) % projectsData.length;
-    renderModalData(currentProjectIndex);
-}
-
-// Fungsi "Show More" / "Show Less" (Hanya berimbas di Mobile)
-function toggleDesc() {
-    const desc = document.getElementById('modal-desc');
-    const icon = document.getElementById('toggle-desc-icon');
-    const text = document.getElementById('toggle-desc-text');
-
-    if (isDescExpanded) {
-        desc.classList.add('line-clamp-3');
-        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
-        text.textContent = 'Show More';
-        isDescExpanded = false;
-    } else {
-        desc.classList.remove('line-clamp-3');
-        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
-        text.textContent = 'Show Less';
-        isDescExpanded = true;
-    }
-}
-
-// Tutup modal saat klik area gelap di luar modal
-if(projectModal) {
-    projectModal.addEventListener('click', function(e) {
-        if(e.target === projectModal) {
-            closeProjectModal();
-        }
-    });
-}
-});
+);

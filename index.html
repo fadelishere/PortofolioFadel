@@ -172,24 +172,31 @@
                 <p class="text-[1.1rem] md:text-xl leading-relaxed text-gray-400 font-light text-left" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200">
                     Furthermore, I actively develop my skills in using design tools and keep up with the latest design trends to produce relevant and innovative outcomes. With a strong enthusiasm for learning, I continuously seek opportunities to grow, explore my creativity, and make a positive impact in the digital design realm.
                 </p>
-                <p class="text-[1.1rem] md:text-xl text-gray-500 font-light mt-6 text-left" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
+                <div class="relative mt-6 text-left" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
+                <!-- 1. Teks utuh tapi 'invisible' (transparan) berfungsi sebagai penahan ukuran ruang/tinggi -->
+                <p class="text-[1.1rem] md:text-xl text-gray-500 font-light invisible pointer-events-none select-none">
                     Work with heart, stay grateful, and keep smiling.
+                </p>
+                
+                <!-- 2. Teks animasi ditempatkan secara absolute menumpuk pas di atas teks transparan -->
+                <p class="absolute top-0 left-0 w-full text-[1.1rem] md:text-xl text-gray-500 font-light">
+                    <span id="typing-text"></span><span class="inline-block w-[2px] h-[1em] bg-primary align-middle ml-1 animate-pulse"></span>
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="py-24 relative z-10 bg-darkBg">
+    <section id="education" class="py-24 relative z-10 bg-darkBg">
         <div class="container mx-auto px-6 md:px-12 max-w-6xl overflow-hidden">
             <div class="mb-16" data-aos="fade-up" data-aos-duration="1200">
                 <div class="flex items-center gap-2 mb-3">
                     <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.385 1.543a.625.625 0 0 1 1.23 0l1.416 5.378a3.125 3.125 0 0 0 2.247 2.247l5.378 1.416a.625.625 0 0 1 0 1.23l-5.378 1.416a3.125 3.125 0 0 0-2.247 2.247l-1.416 5.378a.625.625 0 0 1-1.23 0l-1.416-5.378a3.125 3.125 0 0 0-2.247-2.247l-5.378-1.416a.625.625 0 0 1 0-1.23l5.378-1.416a3.125 3.125 0 0 0 2.247-2.247l1.416-5.378z"/>
+                        <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
                     </svg>
-                    <span class="text-primary font-medium tracking-wide">Education & Organization</span>
+                    <span class="text-primary font-medium tracking-wide">Academic Background</span>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">Experience</h2>
-                <p class="text-gray-400 text-lg font-light text-left">Learned and grew through school and organization experiences.</p>
+                <h2 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">Education</h2>
+                <p class="text-gray-400 text-lg font-light text-left">My formal learning journey and academic focus.</p>
             </div>
 
             <div class="space-y-16 mt-10">
@@ -220,7 +227,84 @@
                         <h3 class="text-3xl font-bold text-white mb-2 tracking-tight">Computer Technology</h3>
                         <h4 class="text-xl font-semibold text-primary mb-4">Universitas Dian Nuswantoro</h4>
                         <p class="text-gray-400 text-lg font-light leading-relaxed mb-6 max-w-2xl overflow-hidden text-left">
-                            Specializing in web design, web development, and graphic design. Currently deepening my expertise in graphic design. I also actively participate in the Himpunan Diploma Teknik Informatika (HMDTI) organization.
+                            Specializing in web design, web development, and graphic design. Currently deepening my expertise in graphic design and modern visual interfaces.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="organization" class="py-24 relative z-10 bg-[#0c0c11]">
+        <div class="container mx-auto px-6 md:px-12 max-w-6xl overflow-hidden">
+            <div class="mb-16" data-aos="fade-up" data-aos-duration="1200">
+                <div class="flex items-center gap-2 mb-3">
+                    <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                    <span class="text-primary font-medium tracking-wide">Active Participation</span>
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">Experience</h2>
+                <p class="text-gray-400 text-lg font-light text-left">Learning and growing through teamwork and professional environments.</p>
+            </div>
+
+            <div class="space-y-16 mt-10">
+                <div class="flex flex-col md:flex-row gap-6 md:gap-16 relative z-10" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="md:w-1/4 flex items-center md:items-start gap-5">
+                        <div class="md:mt-1 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border-[3px] border-primary/40 bg-primary/10 relative z-10">
+                            <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                        </div>
+                        <span class="text-3xl md:text-4xl font-extrabold text-gray-500 leading-none">2024</span>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-3xl font-bold text-white mb-2 tracking-tight">Active Member</h3>
+                        <h4 class="text-xl font-semibold text-primary mb-4">Himpunan Diploma Teknik Informatika</h4>
+                        <p class="text-gray-400 text-lg font-light leading-relaxed mb-6 max-w-2xl overflow-hidden text-left">
+                            Actively participating in organizational activities, developing soft skills, teamwork, and leadership while contributing to various student programs and events.
+                        </p>
+                        <div class="max-w-2xl text-left">
+                            <h5 class="text-white font-medium mb-3 text-lg">Work Program :</h5>
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-5 transition-all duration-300 hover:border-primary/50 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(0,242,254,0.1)]">
+                                <h6 class="text-primary font-semibold text-lg mb-2">DTI Creative Design</h6>
+                                <p class="text-gray-400 text-base font-light leading-relaxed mb-4">
+                                    A work program introducing Figma to students, complemented by basic Figma training to help develop their digital design skills.
+                                </p>  
+                                <div class="inline-block px-3 py-1 bg-primary/20 border border-primary/30 text-primary text-xs rounded-full font-medium mb-3">
+                                    <i class="fa-solid fa-user-tag mr-1"></i> Media Committee Member
+                                </div>
+                                <p class="text-gray-400 text-base font-light leading-relaxed">
+                                    Responsible for documenting activities and designing promotional materials and visual content to support the successful execution of events.
+                                </p>
+                            </div>
+                            <div class="max-w-2xl text-left">
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-5 transition-all duration-300 hover:border-primary/50 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(0,242,254,0.1)]">
+                                <h6 class="text-primary font-semibold text-lg mb-2">DTI Tech Kickstart</h6>
+                                <p class="text-gray-400 text-base font-light leading-relaxed mb-4">
+                                    A work program introducing the interactive web framework Next.js to people from all backgrounds, complemented by basic training to support the development of digital design skills.
+                                </p>
+                                <div class="inline-block px-3 py-1 bg-primary/20 border border-primary/30 text-primary text-xs rounded-full font-medium mb-3">
+                                    <i class="fa-solid fa-user-tag mr-1"></i> Media Committee Member
+                                </div>
+                                <p class="text-gray-400 text-base font-light leading-relaxed">
+                                    Responsible for documenting activities and designing promotional materials and visual content to support the successful execution of events.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-6 md:gap-16 relative z-10" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="md:w-1/4 flex items-center md:items-start gap-5">
+                        <div class="md:mt-1 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border-[3px] border-primary/40 bg-primary/10 relative z-10">
+                            <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                        </div>
+                        <span class="text-3xl md:text-4xl font-extrabold text-gray-500 leading-none">2026</span>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-3xl font-bold text-white mb-2 tracking-tight">Barista</h3>
+                        <h4 class="text-xl font-semibold text-primary mb-4">Belikopi.</h4>
+                        <p class="text-gray-400 text-lg font-light leading-relaxed mb-6 max-w-2xl overflow-hidden text-left">
+                            I worked as a barista for approximately one month. Through this experience, I tried something new in my life by entering the F&B industry and learned many valuable things, such as making and preparing coffee, serving customers well, and developing discipline and responsibility at work.
                         </p>
                     </div>
                 </div>
@@ -428,120 +512,58 @@
     </section>
 
     <section id="portfolio" class="py-20 bg-darkBg/50 relative z-10 overflow-hidden">
-    <div class="container mx-auto px-4 md:px-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center" data-aos="fade-up" data-aos-duration="1200">
-            Selected <span class="text-primary glow-text">Projects</span>
-        </h2>
-        
-        <div class="grid grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
+        <div class="container mx-auto px-4 md:px-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center" data-aos="fade-up" data-aos-duration="1200">
+                Selected <span class="text-primary glow-text">Projects</span>
+            </h2>
             
-            <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="100">
-                <div class="absolute inset-0 bg-[#0f0f1a] flex justify-center items-center">
-                    <img src="image/project-1.png" alt="Baby Glow" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+            <div class="grid grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
+                
+                <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-[#0f0f1a] flex justify-center items-center p-2 md:p-4">
+                        <img src="image/project-1.png" alt="Baby Glow" class="w-full h-full object-contain opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
+                        <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">Baby Glow</h3>
+                        <a href="detail-babyglow.html" class="liquid-glass-button-outline px-4 py-2 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer inline-block z-20">Details</a>
+                    </div>
                 </div>
-                <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100">
-                    <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">Baby Glow</h3>
-                    <button onclick="openProjectModal(0)" class="liquid-glass-button-outline px-3 py-1.5 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer">Details</button>
-                </div>
-            </div>
 
-            <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="200">
-                <div class="absolute inset-0 bg-[#0f0f1a] flex justify-center items-center">
-                    <img src="image/project-2.png" alt="Next Drive" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-[#0f0f1a] flex justify-center items-center p-2 md:p-4">
+                        <img src="image/project-2.png" alt="Next Drive" class="w-full h-full object-contain opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
+                        <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">Next Drive</h3>
+                        <a href="detail-nextdrive.html" class="liquid-glass-button-outline px-4 py-2 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer inline-block z-20">Details</a>
+                    </div>
                 </div>
-                <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100">
-                    <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">Next Drive</h3>
-                    <button onclick="openProjectModal(1)" class="liquid-glass-button-outline px-3 py-1.5 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer">Details</button>
-                </div>
-            </div>
 
-            <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="300">
-                <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1a] flex justify-center items-center">
-                    <img src="image/project-4.png" alt="OmahUti" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1a] flex justify-center items-center p-2 md:p-4">
+                        <img src="image/project-4.png" alt="OmahUti" class="w-full h-full object-contain opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
+                        <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">OmahUti</h3>
+                        <a href="detail-omahuti.html" class="liquid-glass-button-outline px-4 py-2 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer inline-block z-20">Details</a>
+                    </div>
                 </div>
-                <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100">
-                    <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">OmahUti</h3>
-                    <button onclick="openProjectModal(2)" class="liquid-glass-button-outline px-3 py-1.5 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer">Details</button>
-                </div>
-            </div>
 
-            <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="400">
-                <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1a] flex justify-center items-center">
-                    <img src="image/project-3.png" alt="Graphic Design" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <div class="group relative overflow-hidden rounded-xl md:rounded-2xl liquid-glass-panel aspect-[4/3]" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1a] flex justify-center items-center p-2 md:p-4">
+                        <img src="image/project-3.png" alt="Graphic Design" class="w-full h-full object-contain opacity-80 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
+                        <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">Graphic Design</h3>
+                        <a href="detail-graphic.html" class="liquid-glass-button-outline px-4 py-2 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer inline-block z-20">Details</a>
+                    </div>
                 </div>
-                <div class="absolute inset-0 z-10 liquid-glass-overlay p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 text-center group-hover:opacity-100">
-                    <h3 class="text-sm md:text-2xl font-bold text-primary mb-2 md:mb-4">Graphic Design</h3>
-                    <button onclick="openProjectModal(3)" class="liquid-glass-button-outline px-3 py-1.5 md:px-6 md:py-2.5 text-primary text-[10px] md:text-sm rounded-full hover:bg-primary hover:text-darkBg transition cursor-pointer">Details</button>
-                </div>
-            </div>
 
             </div>
         </div>
     </section>
-
-    <div id="project-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden flex-col justify-center items-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
-    <div class="bg-[#05050a] border border-gray-800 rounded-2xl w-full max-w-7xl max-h-full flex flex-col lg:flex-row overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] relative transform scale-95 transition-transform duration-300" id="modal-content">
-        
-        <div class="w-full lg:w-3/4 p-6 md:p-8 overflow-y-auto modal-scrollbar relative">
-            <div class="mb-4 relative rounded-xl overflow-hidden bg-gray-900 aspect-[4/3] border border-gray-800 flex items-center justify-center">
-                <img id="modal-main-img" src="" alt="Main Display" class="w-full h-full object-cover opacity-80 transition-all duration-300">
-                
-                <button onclick="prevProject()" class="absolute left-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white flex items-center justify-center hover:bg-primary hover:text-darkBg transition cursor-pointer z-10">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button onclick="nextProject()" class="absolute right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white flex items-center justify-center hover:bg-primary hover:text-darkBg transition cursor-pointer z-10">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-
-                <h2 id="modal-title" class="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">Project Title</h2>
-                <div class="flex flex-wrap gap-3 mb-8" id="modal-tags">
-                    <span id="modal-category" class="px-4 py-1.5 bg-primary/10 text-primary text-xs font-bold rounded-full border border-primary/30">Category</span>
-                </div>
-
-                <div class="bg-[#0c0c11] border border-gray-800 rounded-2xl p-6 md:p-8">
-                    <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">About Project</h3>
-                    <p id="modal-desc" class="text-gray-300 text-sm md:text-base leading-relaxed font-light mb-2 text-left line-clamp-3 md:line-clamp-none transition-all duration-300">
-                        Project description will appear here.
-                    </p>
-                    <button id="toggle-desc-btn" onclick="toggleDesc()" class="text-primary hover:text-white text-sm font-semibold transition flex md:hidden items-center gap-1 mt-2 cursor-pointer">
-                        <i id="toggle-desc-icon" class="fa-solid fa-chevron-down"></i> <span id="toggle-desc-text">Show More</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-1/4 bg-[#0a0a0f] border-t lg:border-t-0 lg:border-l border-gray-800 p-6 flex flex-col gap-8 overflow-y-auto modal-scrollbar">
-                <button onclick="closeProjectModal()" class="w-full py-3 bg-red-900/10 hover:bg-red-900/30 text-red-500 border border-red-900/30 rounded-xl transition-all font-medium flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-xmark"></i> Close
-                </button>
-
-                <div>
-                    <h4 class="text-primary text-[10px] font-bold tracking-widest mb-4">DETAILS</h4>
-                    <div class="space-y-3">
-                        <div class="bg-[#12121a] border border-gray-800/60 rounded-xl p-4 transition-all hover:border-gray-700">
-                            <span class="text-gray-500 text-xs block mb-1">Role</span>
-                            <span id="modal-role" class="text-gray-200 font-medium text-sm">Web Design</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-primary text-[10px] font-bold tracking-widest mb-4">TECH STACK</h4>
-                    <div id="modal-tech-stack" class="flex flex-wrap gap-2">
-                        </div>
-                </div>
-
-                <div>
-                    <h4 class="text-primary text-[10px] font-bold tracking-widest mb-4">LINKS</h4>
-                    <div class="space-y-3">
-                        <a id="modal-link-live" href="#" target="_blank" class="w-full py-3 px-5 bg-primary text-darkBg rounded-xl font-bold text-sm flex items-center justify-between hover:bg-white hover:scale-[1.02] transition-all shadow-[0_0_15px_rgba(0,242,254,0.2)]">
-                            Live Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
 
     <section id="contact" class="py-32 relative z-10 bg-[#0c0c11] flex items-center justify-center overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-primary/10 rounded-full blur-[100px] md:blur-[150px] -z-10 pointer-events-none"></div>
@@ -573,7 +595,7 @@
     </section>
 
     <footer class="bg-darkBg py-8 text-center border-t border-primary/20 relative z-10">
-        <p class="text-gray-500 text-xs md:text-sm tracking-wide">&copy; 2026 Fadel Naya Raflinanto. Crafted with <i class="fa-solid fa-heart text-primary mx-1"></i></p>
+        <p class="text-gray-500 text-xs md:text-sm tracking-wide">&copy; 2026 Fadel Naya Raflinanto.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
