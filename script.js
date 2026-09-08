@@ -191,6 +191,74 @@ if (typingElement) {
     setTimeout(typeLoop, 800);
 }
 
+// ===========================
+// 7. TIMELINE ANIMATION (WORK PROGRAM)
+// ===========================
+const timelineWrapper = document.getElementById('timeline-wrapper');
+const dots = document.querySelectorAll('.indicator-dot');
+const lineBg = document.getElementById('program-line-bg');
+const lineProgress = document.getElementById('program-line-progress');
+
+function updateExperienceTimeline() {
+    if (!timelineWrapper || dots.length < 3) return;
+
+    // Nonaktifkan eksekusi animasi untuk tampilan mobile
+    if (window.innerWidth < 768) return;
+
+    const dot1 = dots[0];
+    const dot3 = dots[dots.length - 1];
+
+    // Kalkulasi posisi elemen
+    const dot1Rect = dot1.getBoundingClientRect();
+    const dot3Rect = dot3.getBoundingClientRect();
+    const wrapperRect = timelineWrapper.getBoundingClientRect();
+
+    // Jarak vertikal untuk background line agar terhubung tepat dari tengah Lingkaran 1 ke Lingkaran 3
+    const topOffset = (dot1Rect.top - wrapperRect.top) + (dot1Rect.height / 2);
+    const totalHeight = (dot3Rect.top + dot3Rect.height / 2) - (dot1Rect.top + dot1Rect.height / 2);
+
+    if(lineBg) {
+        lineBg.style.top = `${topOffset}px`;
+        lineBg.style.height = `${totalHeight}px`;
+    }
+
+    // Hitung progres scroll
+    const windowHeight = window.innerHeight;
+    const triggerPoint = windowHeight * 0.65; // Garis mulai bereaksi ketika kartu pertama mencapai ~65% tinggi layar
+    
+    let progress = 0;
+    if (dot1Rect.top < triggerPoint) {
+        progress = triggerPoint - dot1Rect.top;
+    }
+
+    progress = Math.max(0, Math.min(progress, totalHeight));
+
+    if(lineProgress) {
+        lineProgress.style.height = `${progress}px`;
+    }
+
+    // Nyalakan lingkaran (berubah warna menjadi primary) saat ujung garis menyentuhnya
+    dots.forEach((dot) => {
+        const dotRect = dot.getBoundingClientRect();
+        const dotCenter = dotRect.top + dotRect.height / 2;
+        const lineBottom = dot1Rect.top + dot1Rect.height / 2 + progress;
+
+        if (lineBottom >= dotCenter - 5) { // Toleransi 5px untuk animasi yang mulus
+            dot.classList.remove('border-gray-600');
+            dot.classList.add('border-primary');
+            dot.style.boxShadow = '0 0 12px rgba(0, 242, 254, 0.4)';
+        } else {
+            dot.classList.add('border-gray-600');
+            dot.classList.remove('border-primary');
+            dot.style.boxShadow = 'none';
+        }
+    });
+}
+
+window.addEventListener('scroll', updateExperienceTimeline);
+window.addEventListener('resize', updateExperienceTimeline);
+setTimeout(updateExperienceTimeline, 300);
+
 // Database Proyek
 const projectsData = [
     {
