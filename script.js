@@ -259,6 +259,81 @@ window.addEventListener('scroll', updateExperienceTimeline);
 window.addEventListener('resize', updateExperienceTimeline);
 setTimeout(updateExperienceTimeline, 300);
 
+// ===========================
+// 8. TAB SWITCH (WORK PROGRAM & GALLERY) MULTI-GRID
+// ===========================
+window.switchTab = function(tab) {
+    const btnWP = document.getElementById('btn-work-program');
+    const btnGallery = document.getElementById('btn-gallery');
+    const contentWP = document.getElementById('content-work-program');
+    const contentGallery = document.getElementById('content-gallery');
+    const indicator = document.getElementById('tab-indicator');
+
+    if (tab === 'work-program') {
+        // 1. Animasi Background Slider Button ke Kiri
+        indicator.style.width = btnWP.offsetWidth + 'px';
+        indicator.style.transform = `translateX(0px)`;
+
+        // 2. Ubah Status Teks (Tanpa merubah font-weight agar text tidak geter/bergeser)
+        btnWP.classList.replace('text-gray-400', 'text-[#0c0c11]');
+        btnWP.classList.remove('hover:text-white');
+        
+        btnGallery.classList.replace('text-[#0c0c11]', 'text-gray-400');
+        btnGallery.classList.add('hover:text-white');
+
+        // 3. Animasi Konten: Gallery Menghilang ke Bawah, WP Muncul dari Atas
+        contentGallery.classList.replace('opacity-100', 'opacity-0');
+        contentGallery.classList.replace('translate-y-0', 'translate-y-4');
+        contentGallery.classList.replace('pointer-events-auto', 'pointer-events-none');
+        contentGallery.classList.replace('z-10', 'z-0');
+
+        contentWP.classList.replace('opacity-0', 'opacity-100');
+        contentWP.classList.replace('translate-y-4', 'translate-y-0');
+        contentWP.classList.replace('pointer-events-none', 'pointer-events-auto');
+        contentWP.classList.replace('z-0', 'z-10');
+
+        // Trigger ulang garis animasi pengalaman jika diperlukan[cite: 1]
+        setTimeout(() => {
+            if (typeof updateExperienceTimeline === 'function') {
+                updateExperienceTimeline();
+            }
+        }, 300);
+
+    } else if (tab === 'gallery') {
+        // 1. Animasi Background Slider Button ke Kanan
+        const slideDistance = btnGallery.offsetLeft - btnWP.offsetLeft;
+        indicator.style.width = btnGallery.offsetWidth + 'px';
+        indicator.style.transform = `translateX(${slideDistance}px)`;
+
+        // 2. Ubah Status Teks
+        btnGallery.classList.replace('text-gray-400', 'text-[#0c0c11]');
+        btnGallery.classList.remove('hover:text-white');
+        
+        btnWP.classList.replace('text-[#0c0c11]', 'text-gray-400');
+        btnWP.classList.add('hover:text-white');
+
+        // 3. Animasi Konten: WP Menghilang ke Bawah, Gallery Muncul dari Atas
+        contentWP.classList.replace('opacity-100', 'opacity-0');
+        contentWP.classList.replace('translate-y-0', 'translate-y-4');
+        contentWP.classList.replace('pointer-events-auto', 'pointer-events-none');
+        contentWP.classList.replace('z-10', 'z-0');
+
+        contentGallery.classList.replace('opacity-0', 'opacity-100');
+        contentGallery.classList.replace('translate-y-4', 'translate-y-0');
+        contentGallery.classList.replace('pointer-events-none', 'pointer-events-auto');
+        contentGallery.classList.replace('z-0', 'z-10');
+    }
+};
+
+// Mengkalibrasi posisi indikator *slider button* pada saat web pertama kali dimuat
+window.addEventListener('load', () => {
+    const btnWP = document.getElementById('btn-work-program');
+    const indicator = document.getElementById('tab-indicator');
+    if (indicator && btnWP) {
+        indicator.style.width = btnWP.offsetWidth + 'px';
+    }
+});
+
 // Database Proyek
 const projectsData = [
     {
